@@ -1,31 +1,274 @@
-hr {
-    width: 75%;            
-    background-color: white; 
-    border: 1px solid white;
-    opacity: 1;             
-    margin-top: 5rem ;  
-    margin-bottom: 5rem;
-    margin-left: auto;
-    margin-right: auto;
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --ink: #192b2b;
+  --muted: #657575;
+  --cream: #f5f4ed;
+  --paper: #fffef9;
+  --green: #c9e36b;
+  --deep-green: #294c43;
+  --line: #dfe4d8;
 }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
 
 body {
-    text-align: justify;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.7;
 }
 
-label {
-    margin-bottom: 5px;
-    font-size: 1.5rem;
+a { color: inherit; text-decoration: none; }
+
+.hero {
+  min-height: 660px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 82% 35%, rgba(201, 227, 107, .30), transparent 28%),
+    linear-gradient(115deg, #f5f4ed 0%, #edf0e4 58%, #dfe8d2 100%);
+  padding: 0 8%;
 }
 
+.hero::after {
+  content: "K9";
+  position: absolute;
+  right: 6%;
+  bottom: -100px;
+  color: rgba(41, 76, 67, .055);
+  font: 800 clamp(250px, 35vw, 520px)/1 'Manrope', sans-serif;
+  pointer-events: none;
+}
 
-#rolunk::before,
-#hungarikum::before,
-#fajtak::before,
-#kapcsolat::before {
-    display: block;
-    margin-top: -5rem;
-    visibility: hidden;
-    content: "";
-    height: 5rem;
+.navbar {
+  min-height: 88px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 28px;
+  border-bottom: 1px solid rgba(25, 43, 43, .12);
+  position: relative;
+  z-index: 1;
+}
+
+.logo {
+  font: 800 1.1rem 'Manrope', sans-serif;
+  letter-spacing: .12em;
+}
+
+.logo span { color: #789d31; }
+
+.nav-links { display: flex; gap: 32px; }
+.nav-links a {
+  color: #405450;
+  font-size: .9rem;
+  transition: color .2s;
+}
+.nav-links a:hover { color: #789d31; }
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 650px;
+  padding: 105px 0 120px;
+}
+
+.eyebrow, .section-mark {
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  color: #668044;
+}
+
+.hero h1, h2 {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  letter-spacing: -.055em;
+  line-height: 1.08;
+}
+
+.hero h1 {
+  font-size: clamp(3.2rem, 7vw, 6rem);
+  margin: 22px 0;
+}
+
+.hero h1 span, h2 span { color: #6c8d35; }
+
+.hero-text {
+  max-width: 475px;
+  color: #52645f;
+  font-size: 1.05rem;
+  margin-bottom: 32px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 28px;
+  background: var(--deep-green);
+  color: white;
+  border-radius: 4px;
+  padding: 14px 20px;
+  font-weight: 600;
+  transition: transform .2s, background .2s;
+}
+.button:hover { transform: translateY(-3px); background: #3d6658; }
+.button span { color: var(--green); font-size: 1.2rem; }
+
+.hero-label {
+  position: absolute;
+  right: 8%;
+  bottom: 35px;
+  z-index: 1;
+  font-size: .65rem;
+  letter-spacing: .2em;
+  color: #64766a;
+}
+
+.section {
+  padding: 100px 8%;
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 35px;
+}
+
+.intro { align-items: start; }
+.section-mark { padding-top: 9px; white-space: nowrap; }
+
+h2 {
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  margin-bottom: 24px;
+}
+
+.intro p, .contact p {
+  max-width: 690px;
+  color: var(--muted);
+  margin-top: 14px;
+}
+
+.intro-number {
+  grid-column: 2;
+  margin-top: 15px;
+  font: 800 4rem 'Manrope', sans-serif;
+  color: #dce6c6;
+  letter-spacing: -.08em;
+}
+.intro-number span { color: #789d31; }
+
+.topics {
+  display: block;
+  background: var(--cream);
+}
+.section-heading { margin: 22px 0 40px 215px; }
+.section-heading p { color: var(--muted); }
+
+.card-grid {
+  margin-left: 215px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.topic-card {
+  min-height: 300px;
+  padding: 28px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: transform .25s, box-shadow .25s;
+}
+.topic-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(25, 43, 43, .08);
+}
+.topic-card.featured {
+  background: var(--deep-green);
+  color: white;
+  border-color: var(--deep-green);
+}
+.card-number {
+  align-self: flex-end;
+  color: #89978d;
+  font-size: .75rem;
+  letter-spacing: .12em;
+}
+.card-icon {
+  font-size: 2.4rem;
+  color: #7e9d43;
+  margin: 12px 0 10px;
+}
+.featured .card-icon { color: var(--green); }
+.topic-card h3 {
+  font: 700 1.35rem 'Manrope', sans-serif;
+  margin-bottom: 10px;
+}
+.topic-card p { color: var(--muted); font-size: .93rem; }
+.featured p { color: #d3dfd6; }
+.topic-card a {
+  margin-top: auto;
+  padding-top: 24px;
+  font-size: .83rem;
+  font-weight: 700;
+}
+.topic-card a span { color: #789d31; margin-left: 8px; }
+.featured a span { color: var(--green); }
+
+.quote-section {
+  padding: 95px 8%;
+  text-align: center;
+  background: #e7edda;
+}
+.quote-section blockquote {
+  max-width: 850px;
+  margin: 22px auto 15px;
+  font: 700 clamp(1.8rem, 4vw, 3.2rem)/1.25 'Manrope', sans-serif;
+  letter-spacing: -.04em;
+}
+.quote-caption { color: var(--muted); font-size: .93rem; }
+
+.contact { background: var(--paper); }
+.contact h2 { margin-bottom: 20px; }
+
+footer {
+  background: #192f2b;
+  color: #e8eee5;
+  padding: 28px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+footer p { color: #bdcbc1; font-size: .85rem; }
+.back-top { font-size: .85rem; color: var(--green); }
+
+@media (max-width: 900px) {
+  .section { grid-template-columns: 1fr; padding: 75px 7%; }
+  .section-mark { margin-bottom: -15px; }
+  .section-heading, .card-grid { margin-left: 0; }
+  .card-grid { grid-template-columns: 1fr 1fr; }
+  .intro-number { grid-column: 1; }
+  .hero { padding: 0 7%; }
+}
+
+@media (max-width: 600px) {
+  .navbar { align-items: flex-start; flex-direction: column; padding: 22px 0; }
+  .nav-links { gap: 14px; flex-wrap: wrap; }
+  .nav-links a { font-size: .82rem; }
+  .hero-content { padding: 75px 0 100px; }
+  .hero h1 { font-size: 3.25rem; }
+  .hero-label { left: 7%; right: auto; font-size: .58rem; }
+  .card-grid { grid-template-columns: 1fr; }
+  .topic-card { min-height: 260px; }
+  .quote-section { padding: 70px 7%; }
+  footer { align-items: flex-start; flex-direction: column; }
 }
