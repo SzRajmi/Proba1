@@ -1,2 +1,2 @@
-Cél: A Cutler weboldalának "újraalkotása"
-Következő feeladat: kép feltöltése háttérkén
+Cél: Kutya
+Következő feeladat: kép feltöltése háttérként
